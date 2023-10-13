@@ -3,8 +3,9 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "start": "concurrently \"react-scripts start\" \"graphql-codegen --config codegen.json\"",
+    "build": "react-scripts build",
+    "codegen": "graphql-codegen --config codegen.json"
   },
   "dependencies": {
     "@apollo/client": "^3.7.12",
@@ -17,9 +18,13 @@
     "react-router-dom": "^6.10.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/client-preset": "4.1.0",
+    "@graphql-typed-document-node/core": "^3.2.0",
     "@types/node": "^18.16.1",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.1",
+    "concurrently": "^8.2.1",
     "react-scripts": "5.0.1",
     "typescript": "^5.0.4"
   },
